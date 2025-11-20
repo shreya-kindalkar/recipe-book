@@ -1,0 +1,16 @@
+{%extends 'base_public.html'%}
+{%block content%}
+<div class="container">
+    <form class="login-form">
+        <p>Create an Account</p>
+        <input type="email" placeholder="Email" class="login-input" required>
+        <input type="password" placeholder="Password" class="login-input" required>
+        <input type="password" placeholder="Confirm Password" class="login-input" required>
+
+        <button type="submit" class="login-btn">Sign Up</button>
+        <p class="login-footer">
+            Already have an account?<a href="/login">Login</a>
+        </p>
+    </form>
+</div>
+{%endblock%}
