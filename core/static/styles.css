@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fcfcfc;
+    background-image: url('https://images.unsplash.com/photo-1454944338482-a69bb95894af?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    
+    width:400px;
+    height: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgb(104, 103, 103);
+}
+.login-form{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.login-input{
+    margin:10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(171, 202, 202);
+}
+.forgot-pw{
+    text-align: right;
+    margin-right: 20px;
+}
+.login-btn{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #c1e0fa;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-btn:hover{
+    background-color: #505ffd;
+    color: white;
+}
+.login-footer a{
+    text-decoration: none;
+    color: #262f96;
+}
+.forgot-pw a{
+    text-decoration: none;
+    color: #262f96;
+}
+.header{
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(20, 62, 74);
+    /* font-weight: 400; */
+    text-align: left;
+    padding-left: 25px;
+}
+.login-footer{
+    font-size: 15px;
+}
