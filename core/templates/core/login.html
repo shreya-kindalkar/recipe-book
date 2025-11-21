@@ -1,10 +1,9 @@
 {%extends 'base_public.html'%}
 {%block title%}{{title}}{%endblock%}
 {%block content%}
-{%endblock%}
 <div class="container">
     <form class="login-form">
-        <p>Login to Continue</p>
+        <p class="header">Login to Continue</p>
         <input type="email" placeholder="Email" class="login-input" required>
         <input type="password" placeholder="Password" class="login-input" required>
         <div class="forgot-pw">
@@ -13,8 +12,8 @@
 
         <button type="submit" class="login-btn">Login</button>
         <p class="login-footer">
-            Don't have an account?<a href="#">Sign Up</a>
+            Don't have an account? <a href="/signup"> Sign Up</a>
         </p>
     </form>
 </div>
-{%endblock%}
+{% endblock %}
