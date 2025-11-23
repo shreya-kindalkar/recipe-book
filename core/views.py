@@ -15,4 +15,4 @@ def signup(request):
         user.save()
         messages.success(request,"Account created")
         return redirect('login')
-    return render(request,"signup.html")
+    return render(request,"core/signup.html")
