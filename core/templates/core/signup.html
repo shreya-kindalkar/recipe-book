@@ -5,9 +5,9 @@
     <form class="login-form" method="POST">
         {% csrf_token %}
         <p class="header">Create an Account</p>
-        <input type="email" placeholder="Email" class="login-input" required>
-        <input type="password" placeholder="Password" class="login-input" required>
-        <input type="password" placeholder="Confirm Password" class="login-input" required>
+        <input type="email" name="email" placeholder="Email" class="login-input" required>
+        <input type="password" name="password" placeholder="Password" class="login-input" required>
+        <input type="password" name="password" placeholder="Confirm Password" class="login-input" required>
 
         <button type="submit" class="login-btn">Sign Up</button>
         <p class="login-footer">
