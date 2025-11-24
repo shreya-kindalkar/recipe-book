@@ -8,6 +8,11 @@ def signup(request):
         username=request.POST['email']
         email=request.POST['email']
         password=request.POST['password']
+        confirmpassword=request.POST['confirmpassword']
+        
+        if password!=confirmpassword:
+            messages.error(request, "Passwords do not match")
+            return redirect('signup')
 
         if User.objects.filter(username=username).exists():
             messages.error(request,"User already exists.")
