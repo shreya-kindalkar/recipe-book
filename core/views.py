@@ -22,7 +22,7 @@ def signup(request):
         messages.success(request,"Account created")
         return redirect('login')
     return render(request,"core/signup.html")
-def login(request):
+def user_login(request):
     if request.method=="POST":
         email=request.POST['email']
         password=request.POST['password']
