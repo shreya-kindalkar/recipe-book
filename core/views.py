@@ -8,7 +8,7 @@ def signup(request):
         username=request.POST['email']
         email=request.POST['email']
         password=request.POST['password']
-        confirmpassword=request.POST['confirmpassword']
+        confirmpassword=request.POST['confirm_password']
         
         if password!=confirmpassword:
             messages.error(request, "Passwords do not match")
