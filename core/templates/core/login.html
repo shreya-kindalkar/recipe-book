@@ -5,8 +5,8 @@
     <form class="login-form" method="post">
         {% csrf_token %}
         <p class="header">Login to Continue</p>
-        <input type="email" placeholder="Email" class="login-input" required>
-        <input type="password" placeholder="Password" class="login-input" required>
+        <input type="email" name="email" placeholder="Email" class="login-input" required>
+        <input type="password" name="password" placeholder="Password" class="login-input" required>
         <div class="forgot-pw">
             <a href="#">Forgot Password?</a>
         </div>
