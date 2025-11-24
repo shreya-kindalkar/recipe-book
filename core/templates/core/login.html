@@ -2,7 +2,8 @@
 {%block title%}Login{%endblock%}
 {%block content%}
 <div class="container">
-    <form class="login-form">
+    <form class="login-form" method="post">
+        {% csrf_token %}
         <p class="header">Login to Continue</p>
         <input type="email" placeholder="Email" class="login-input" required>
         <input type="password" placeholder="Password" class="login-input" required>
