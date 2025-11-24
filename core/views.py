@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login
 from django.contrib import messages
 # Create your views here.
 def signup(request):
@@ -16,3 +17,16 @@ def signup(request):
         messages.success(request,"Account created")
         return redirect('login')
     return render(request,"core/signup.html")
+def login(request):
+    if request.method=="POST":
+        email=request.POST['email']
+        password=request.POST['password']
+
+        user=authenticate(request,username=email,password=password)
+        if user:
+            login(request,user)
+            return redirect ('dashboard')
+        else:
+            messages.error(request,"Invalid Credentials")
+            return redirect('login')
+    return render(request, 'core/login.html')
