@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
+from django.contrib.auth import logout
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -37,3 +38,6 @@ def user_login(request):
     return render(request, 'core/login.html')
 def dashboard(request):
     return render(request,'core/dashboard.html')
+def user_logout(request):
+    logout(request)
+    return redirect('login')
