@@ -8,9 +8,9 @@ def signup(request):
         username=request.POST['email']
         email=request.POST['email']
         password=request.POST['password']
-        confirmpassword=request.POST['confirm_password']
+        confirm_password=request.POST['confirm_password']
         
-        if password!=confirmpassword:
+        if password!=confirm_password:
             messages.error(request, "Passwords do not match")
             return redirect('signup')
 
@@ -35,3 +35,5 @@ def user_login(request):
             messages.error(request,"Invalid Credentials")
             return redirect('login')
     return render(request, 'core/login.html')
+def dashboard(request):
+    return render(request,'core/dashboard.html')
