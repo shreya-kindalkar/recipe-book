@@ -1,0 +1,15 @@
+{% extends 'base_public.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="navbar">
+    <div class="title"> RecipeBook</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="#">+ Add Recipe</a>
+        <a href="#">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+{% endblock %}
