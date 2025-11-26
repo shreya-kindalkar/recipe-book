@@ -1,0 +1,18 @@
+{% extends 'base_app.html' %}
+{% block title %}Add Recipe{% endblock %}
+{% block content %}
+<div class="add-container">
+    <h2 class="add-title">Create New Recipe</h2>
+    <form class="add-form">
+        <label>Recipe Title</label>
+        <input type="text" class="add-input" placeholder="Enter recipe title">
+        <label>Ingredients</label>
+        <textarea class="add-textarea" placeholder="List the ingredients..."></textarea>
+        <label>Instructions</label>
+        <textarea class="add-textarea" placeholder="Write the cooking steps..."></textarea>
+        <label>Recipe Image</label>
+        <input type="file" class="add-file">
+        <button type="submit" class="add-btn">Post Recipe</button>
+    </form>
+</div>
+{% endblock %}
