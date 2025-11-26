@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body style="background: #fafafa; margin: 0;">
+
+    {% block navbar %}
+    {% endblock %}
+
+    <div class="content-area">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>
