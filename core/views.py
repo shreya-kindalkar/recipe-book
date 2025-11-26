@@ -45,4 +45,4 @@ def home(request):
     return render(request, 'core/dashboard.html')
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect(request,'core/login.html')
