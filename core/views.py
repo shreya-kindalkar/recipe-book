@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -36,8 +37,12 @@ def user_login(request):
             messages.error(request,"Invalid Credentials")
             return redirect('login')
     return render(request, 'core/login.html')
+@login_required(login_url='login')
 def dashboard(request):
     return render(request,'core/dashboard.html')
+@login_required(login_url='login')
+def home(request):
+    return render(request, 'core/dashboard.html')
 def user_logout(request):
     logout(request)
     return redirect('login')
