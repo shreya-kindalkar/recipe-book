@@ -1,0 +1,70 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar .title {
+    font-size: 22px;
+    font-weight: bold;
+}
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px; 
+    padding-bottom: 50px;
+}
+
+.feed-container {
+    width: 100%;
+    max-width: 650px;
+}
+
+.post-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+
+.post-header {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+}
+
+.post-actions {
+    display: flex;
+    gap: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+.post-actions span {
+    cursor: pointer;
+}
+
+.post-content {
+    padding: 0 15px;
+    margin-top: 10px;
+    color: #333;
+}

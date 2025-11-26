@@ -1,7 +1,7 @@
-{% extends 'base_public.html' %}
+{% extends 'base_app.html' %}
 {% block title %}Home{% endblock %}
 
-{% block content %}
+{% block navbar %}
 <div class="navbar">
     <div class="title"> RecipeBook</div>
     <div>
@@ -11,5 +11,50 @@
         <a href="{% url 'logout' %}">Logout</a>
     </div>
 </div>
+{% endblock %}
+{% block content %}
+
+<div class="main-content">
+    <div class="feed-container">
+
+        <div class="post-card">
+            <div class="post-header">
+                <strong>@foodlover</strong> · Chocolate Cake
+            </div>
+
+            <img class="post-image" src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=803&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recipe">
+
+            <div class="post-actions">
+                <span>❤️</span>
+                <span>💬</span>
+                <span>🔖</span>
+            </div>
+
+            <div class="post-content">
+                A delicious chocolate cake with rich frosting.
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <strong>@chefmaster</strong> · Lemon Pasta
+            </div>
+
+            <img class="post-image" src="https://images.unsplash.com/photo-1571777663262-fcc9e6076644?q=80&w=714&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recipe">
+
+            <div class="post-actions">
+                <span>❤️</span>
+                <span>💬</span>
+                <span>🔖</span>
+            </div>
+
+            <div class="post-content">
+                Fresh, tangy pasta made with lemon and herbs.
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 {% endblock %}
