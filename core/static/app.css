@@ -68,3 +68,139 @@
     margin-top: 10px;
     color: #333;
 }
+:root{
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #ef476f;
+  --accent-2: #ff7b6b;
+  --input-border: #e6e9ef;
+  --shadow: 0 6px 20px rgba(16,24,40,0.08);
+  --radius: 12px;
+  --max-width: 760px;
+}
+
+/* Page / container */
+.add_container{
+  max-width: var(--max-width);
+  margin: 36px auto;
+  background: linear-gradient(180deg, var(--bg), #ffffff);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+/* Title */
+.add_title{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 1.6rem;
+  margin: 0 0 18px 0;
+  color: #111827;
+  letter-spacing: -0.2px;
+}
+
+/* Form layout */
+.add-form{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Labels */
+.add-form label{
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Text inputs */
+.add_input,
+.add_textarea,
+.add_file {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background: var(--card);
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow .18s ease, border-color .12s ease, transform .08s ease;
+}
+
+/* Textarea specific */
+.add_textarea{
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+/* Input / textarea focus */
+.add_input:focus,
+.add_textarea:focus,
+.add_file:focus{
+  border-color: rgba(239,71,111,0.9);
+  box-shadow: 0 6px 18px rgba(239,71,111,0.06);
+  transform: translateY(-1px);
+}
+
+/* File input — nicer spacing */
+.add_file{
+  padding: 10px 12px;
+}
+
+/* Submit button */
+.add-btn{
+  margin-top: 6px;
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 24px rgba(239,71,111,0.14);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+/* Button hover / active */
+.add-btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 30px rgba(239,71,111,0.18); }
+.add-btn:active{ transform: translateY(-1px); opacity: .98; }
+
+/* Small helper: put file label & preview inline if needed */
+.file-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+/* Optional image preview box (use if you add JS preview) */
+.img-preview{
+  width:84px;
+  height:84px;
+  border-radius:10px;
+  border:1px dashed var(--input-border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#fafafa;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .add_container{
+    margin: 20px;
+    padding: 18px;
+    border-radius: 12px;
+  }
+  .add_title{ font-size: 1.35rem; }
+  .add_textarea{ min-height: 110px; }
+}
