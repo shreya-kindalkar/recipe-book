@@ -45,7 +45,7 @@ def home(request):
     return render(request, 'core/dashboard.html')
 def user_logout(request):
     logout(request)
-    return redirect(request,'core/login.html')
+    return redirect('login')
 @login_required(login_url='login')
 def add_recipe(request):
     return render(request, 'core/add_recipe.html')
