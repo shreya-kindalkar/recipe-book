@@ -1,17 +1,18 @@
 {% extends 'base_app.html' %}
 {% block title %}Add Recipe{% endblock %}
 {% block content %}
-<div class="add-container">
-    <h2 class="add-title">Create New Recipe</h2>
-    <form class="add-form">
+<div class="add_container">
+    <h2 class="add_title">Create New Recipe</h2>
+    <form class="add-form" method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
         <label>Recipe Title</label>
-        <input type="text" class="add-input" placeholder="Enter recipe title">
+        <input type="text" class="add_input" name="title" placeholder="Enter recipe title">
         <label>Ingredients</label>
-        <textarea class="add-textarea" placeholder="List the ingredients..."></textarea>
+        <textarea class="add_textarea" name="ingredients" placeholder="List the ingredients..."></textarea>
         <label>Instructions</label>
-        <textarea class="add-textarea" placeholder="Write the cooking steps..."></textarea>
+        <textarea class="add_textarea" name="instructions" placeholder="Write the cooking steps..."></textarea>
         <label>Recipe Image</label>
-        <input type="file" class="add-file">
+        <input type="file" class="add_file" name="image">
         <button type="submit" class="add-btn">Post Recipe</button>
     </form>
 </div>
