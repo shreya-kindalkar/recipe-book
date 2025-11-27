@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from .models import Recipe
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -43,10 +44,25 @@ def dashboard(request):
 @login_required(login_url='login')
 def home(request):
     return render(request, 'core/dashboard.html')
+@login_required(login_url='login')
 def user_logout(request):
     logout(request)
     return redirect('login')
 @login_required(login_url='login')
 def add_recipe(request):
+    if request.method=="POST":
+        title=request.POST.get('title')
+        ingredients=request.POST.get('ingredients')
+        instructions=request.POST.get('instructions')
+        image=request.FILES.get('image')
+
+        Recipe.objects.create(
+            user=request.user,
+            title=title,
+            ingredients=ingredients,
+            instructions=instructions,
+            image=image
+        )
+        return redirect('dashboard')
     return render(request, 'core/add_recipe.html')
 
