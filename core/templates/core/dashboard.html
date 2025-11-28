@@ -1,60 +1,41 @@
 {% extends 'base_app.html' %}
-{% block title %}Home{% endblock %}
-
-{% block navbar %}
-<div class="navbar">
-    <div class="title"> RecipeBook</div>
-    <div>
-        <a href="/">Home</a>
-        <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
-        <a href="#">Profile</a>
-        <a href="{% url 'logout' %}">Logout</a>
-    </div>
-</div>
-{% endblock %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
 {% block content %}
-
-<div class="main-content">
-    <div class="feed-container">
-
-        <div class="post-card">
-            <div class="post-header">
-                <strong>@foodlover</strong> · Chocolate Cake
-            </div>
-
-            <img class="post-image" src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=803&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recipe">
-
-            <div class="post-actions">
-                <span>❤️</span>
-                <span>💬</span>
-                <span>🔖</span>
-            </div>
-
-            <div class="post-content">
-                A delicious chocolate cake with rich frosting.
-            </div>
+<div class="dashboard-wrapper">
+    <div class="hero-box">
+        <h2>Hello, {{ request.user.username }} </h2>
+        <p class="hero-sub">Discover and share delicious homemade recipes</p>
+        <div class="search-wrapper">
+            <input type="text" placeholder="Search recipes...">
+            <button>Search</button>
         </div>
-
-        <div class="post-card">
-            <div class="post-header">
-                <strong>@chefmaster</strong> · Lemon Pasta
-            </div>
-
-            <img class="post-image" src="https://images.unsplash.com/photo-1571777663262-fcc9e6076644?q=80&w=714&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Recipe">
-
-            <div class="post-actions">
-                <span>❤️</span>
-                <span>💬</span>
-                <span>🔖</span>
-            </div>
-
-            <div class="post-content">
-                Fresh, tangy pasta made with lemon and herbs.
-            </div>
-        </div>
-
     </div>
-</div>
+    <div class="categories-scroll">
+        <button class="cat-btn active">Dinner</button>
+        <button class="cat-btn">Snacks</button>
+        <button class="cat-btn">Desserts</button>
+        <button class="cat-btn">Healthy</button>
+        <button class="cat-btn">Beverages</button>
+    </div>
+    <div class="recipe-grid">
+        {% for r in recipes %}
+        <div class="recipe-card">
 
+            {% if r.image %}
+            <img src="{{ r.image.url }}" alt="{{ r.title }}">
+            {% endif %}
+
+            <div class="recipe-info">
+                <h3>{{ r.title }}</h3>
+                <p>{{ r.ingredients|truncatewords:10 }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>No recipes yet. Add one!</p>
+        {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}
