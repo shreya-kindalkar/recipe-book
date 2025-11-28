@@ -9,9 +9,18 @@
 </head>
 
 <body style="background: #fafafa; margin: 0;">
+{% block navbar %}
+<div class="navbar">
+    <div class="title"> RecipeBook</div>
+    <div>
+        <a href="{% url 'dashboard' %}">Home</a>
+        <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
+        <a href="#">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+{% endblock %}
 
-    {% block navbar %}
-    {% endblock %}
 
     <div class="content-area">
         {% block content %}
