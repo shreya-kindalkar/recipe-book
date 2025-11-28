@@ -40,7 +40,8 @@ def user_login(request):
     return render(request, 'core/login.html')
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request,'core/dashboard.html')
+    recipes = Recipe.objects.all()
+    return render(request,'core/dashboard.html',{'recipes':recipes})
 @login_required(login_url='login')
 def home(request):
     return render(request, 'core/dashboard.html')
