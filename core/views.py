@@ -6,6 +6,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Recipe
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -85,3 +86,6 @@ def add_recipe(request):
         return redirect('dashboard')
     return render(request, 'core/add_recipe.html')
 
+def recipe_detail(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+    return render(request, "recipe_detail.html", {"recipe": recipe})
