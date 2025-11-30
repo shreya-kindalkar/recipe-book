@@ -41,7 +41,11 @@ def user_login(request):
 @login_required(login_url='login')
 def dashboard(request):
     recipes = Recipe.objects.all()
-    return render(request,'core/dashboard.html',{'recipes':recipes})
+    username_only = request.user.username.split("@")[0]
+    return render(request,'core/dashboard.html', {
+    'recipes':recipes,
+    'username_only':username_only 
+    })
 @login_required(login_url='login')
 def home(request):
     return render(request, 'core/dashboard.html')
