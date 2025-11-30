@@ -1,0 +1,32 @@
+{% extends 'base_app.html' %}
+{% load static %}
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+<div class="detail-wrapper">
+    <h1 class="detail-title">{{ recipe.title }}</h1>
+    {% if recipe.image %}
+    <div class="detail-img-box">
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="detail-img">
+    </div>
+    {% endif %}
+    <div class="detail-meta">
+        <p><strong>Category:</strong> {{ recipe.category }}</p>
+        <p><strong>Posted by:</strong> {{ recipe.user.email }}</p>
+        <p><strong>Posted on:</strong> {{ recipe.created_at|date:"M d, Y" }}</p>
+    </div>
+
+    <hr class="detail-divider">
+    <div class="detail-content-grid">
+        <div class="detail-section">
+            <h2>Ingredients</h2>
+            <p class="detail-text">{{ recipe.ingredients|linebreaks }}</p>
+        </div>
+        <div class="detail-section">
+            <h2>Instructions</h2>
+            <p class="detail-text">{{ recipe.instructions|linebreaks }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
