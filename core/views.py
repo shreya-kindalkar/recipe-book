@@ -88,4 +88,4 @@ def add_recipe(request):
 
 def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
-    return render(request, "recipe_detail.html", {"recipe": recipe})
+    return render(request, "core/recipe_detail.html", {"recipe": recipe})
