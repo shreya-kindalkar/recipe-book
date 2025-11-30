@@ -7,6 +7,16 @@
         {% csrf_token %}
         <label>Recipe Title</label>
         <input type="text" class="add_input" name="title" placeholder="Enter recipe title">
+        <label>Category</label>
+        <select name="category" required>
+        <option value="">Select category</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Healthy">Healthy</option>
+        <option value="Beverages">Beverages</option>
+        </select>
+
         <label>Ingredients</label>
         <textarea class="add_textarea" name="ingredients" placeholder="List the ingredients..."></textarea>
         <label>Instructions</label>

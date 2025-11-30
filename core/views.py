@@ -60,13 +60,15 @@ def add_recipe(request):
         ingredients=request.POST.get('ingredients')
         instructions=request.POST.get('instructions')
         image=request.FILES.get('image')
+        category = request.POST["category"]
 
         Recipe.objects.create(
             user=request.user,
             title=title,
             ingredients=ingredients,
             instructions=instructions,
-            image=image
+            image=image,
+            category=category
         )
         return redirect('dashboard')
     return render(request, 'core/add_recipe.html')
