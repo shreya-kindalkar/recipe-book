@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Recipe
+from django.db.models import Q
 # Create your views here.
 def signup(request):
     if request.method=="POST":
@@ -40,11 +41,22 @@ def user_login(request):
     return render(request, 'core/login.html')
 @login_required(login_url='login')
 def dashboard(request):
+    query = request.GET.get('q')              
+    category = request.GET.get('category')
     recipes = Recipe.objects.all()
+    if query:
+        recipes = recipes.filter(
+            Q(title__icontains=query) |
+            Q(ingredients__icontains=query)
+        )
+    if category:
+        recipes = recipes.filter(category=category)
     username_only = request.user.username.split("@")[0]
     return render(request,'core/dashboard.html', {
     'recipes':recipes,
-    'username_only':username_only 
+    'username_only':username_only,
+    'selected_category': category,
+    'query': query
     })
 @login_required(login_url='login')
 def home(request):

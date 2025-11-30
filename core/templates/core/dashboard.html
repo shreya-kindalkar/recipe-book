@@ -6,17 +6,25 @@
     <div class="hero-box">
         <h2>Hello, {{ username_only }} </h2>
         <p class="hero-sub">Discover and share delicious homemade recipes</p>
+        <form method="GET" class="search-form">
         <div class="search-wrapper">
-            <input type="text" placeholder="Search recipes...">
+            <input type="text" name ="q" placeholder="Search recipes..." value="{{ query }}">
             <button>Search</button>
         </div>
+        </form>
     </div>
     <div class="categories-scroll">
-        <button class="cat-btn active">Dinner</button>
-        <button class="cat-btn">Snacks</button>
-        <button class="cat-btn">Desserts</button>
-        <button class="cat-btn">Healthy</button>
-        <button class="cat-btn">Beverages</button>
+        <a href="?category=Dinner" 
+           class="cat-btn {% if selected_category == 'Dinner' %}active{% endif %}">Dinner</a>
+        <a href="?category=Snacks" 
+           class="cat-btn {% if selected_category == 'Snacks' %}active{% endif %}">Snacks</a>
+        <a href="?category=Desserts" 
+           class="cat-btn {% if selected_category == 'Desserts' %}active{% endif %}">Desserts</a>
+        <a href="?category=Healthy" 
+           class="cat-btn {% if selected_category == 'Healthy' %}active{% endif %}">Healthy</a>
+        <a href="?category=Beverages" 
+           class="cat-btn {% if selected_category == 'Beverages' %}active{% endif %}">Beverages</a>
+        <a href="{% url 'dashboard' %}" class="cat-btn clear">All</a>
     </div>
     <div class="recipe-grid">
         {% for r in recipes %}
@@ -31,6 +39,7 @@
                 <p>{{ r.ingredients|truncatewords:10 }}</p>
             </div>
         </div>
+        </a>
         {% empty %}
         <p>No recipes yet. Add one!</p>
         {% endfor %}
