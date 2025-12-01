@@ -6,6 +6,14 @@
 <div class="detail-page">
 <div class="detail-wrapper">
     <h1 class="detail-title">{{ recipe.title }}</h1>
+    {% if recipe.user == request.user %}
+<div class="delete-box">
+    <a href="{% url 'delete_recipe' recipe.id %}" 
+       onclick="return confirm('Are you sure you want to delete this recipe?')" 
+       class="delete-btn">Delete Recipe</a>
+</div>
+{% endif %}
+
     {% if recipe.image %}
     <div class="detail-img-box">
         <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="detail-img">

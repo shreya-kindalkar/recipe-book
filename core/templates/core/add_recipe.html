@@ -6,7 +6,7 @@
     <form class="add-form" method="POST" enctype="multipart/form-data" action="">
         {% csrf_token %}
         <label>Recipe Title</label>
-        <input type="text" class="add_input" name="title" placeholder="Enter recipe title">
+        <input type="text" class="add_input" name="title" placeholder="Enter recipe title" required>
         <label>Category</label>
         <select name="category" required>
         <option value="">Select category</option>
@@ -18,9 +18,9 @@
         </select>
 
         <label>Ingredients</label>
-        <textarea class="add_textarea" name="ingredients" placeholder="List the ingredients..."></textarea>
+        <textarea class="add_textarea" name="ingredients" placeholder="List the ingredients." required></textarea>
         <label>Instructions</label>
-        <textarea class="add_textarea" name="instructions" placeholder="Write the cooking steps..."></textarea>
+        <textarea class="add_textarea" name="instructions" placeholder="Write the cooking steps." required></textarea>
         <label>Recipe Image</label>
         <input type="file" class="add_file" name="image">
         <button type="submit" class="add-btn">Post Recipe</button>

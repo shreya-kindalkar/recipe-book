@@ -89,3 +89,12 @@ def add_recipe(request):
 def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
     return render(request, "core/recipe_detail.html", {"recipe": recipe})
+@login_required(login_url="login")
+def delete_recipe(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+    if recipe.user != request.user:
+        messages.error(request, "You are not allowed to delete this recipe.")
+        return redirect("dashboard")
+    recipe.delete()
+    messages.success(request, "Recipe deleted successfully.")
+    return redirect("dashboard")

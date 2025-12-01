@@ -159,7 +159,10 @@ body {
     height: 190px;
     object-fit: cover;
 }
-
+a{
+    text-decoration: none;
+    color: #0f172a;
+}
 .recipe-info {
     padding: 14px;
 }
@@ -421,4 +424,26 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+/* -----DELETE BUTTON----------- */
+.delete-box {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    color: white;
+    background: #ef4444;    /* red-500 */
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+    box-shadow: 0 4px 10px rgba(239,68,68,0.25);
+}
+
+.delete-btn:hover {
+    background: #dc2626;    /* red-600 */
+    transform: translateY(-2px);
 }
