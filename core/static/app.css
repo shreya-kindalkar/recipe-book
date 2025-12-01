@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(18, 88, 22, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0,0,0,0.5);
     top: 0;
@@ -30,14 +30,15 @@ body {
 
 .navbar .title {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 400;
     color: #0f172a;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .navbar a {
     margin-left: 25px;
     text-decoration: none;
-    color: #475569;
+    color: #99db78;
     font-weight: 500;
     transition: 0.2s ease;
 }
@@ -96,7 +97,7 @@ body {
 .search-wrapper button {
     padding: 14px 18px;
     border: none;
-    background: #10b981;
+    background: rgba(18, 88, 22, 0.8);
     color: white;
     border-radius: 0 12px 12px 0;
     cursor: pointer;
@@ -285,7 +286,7 @@ a{
   display: inline-block;
   padding: 14px;
   border-radius: 12px;
-  background: #10b981;
+  background: rgba(18, 88, 22, 0.8);
   color: white;
   border: none;
   cursor: pointer;
@@ -300,7 +301,7 @@ a{
 .add-btn:hover{
     transform: translateY(-2px); 
     box-shadow: 0 12px 30px rgba(239,71,111,0.18);
-    background-color: #0c8a6f;
+    background-color: #99db78;
 }
 .add-btn:active{ 
     transform: translateY(0px); 
