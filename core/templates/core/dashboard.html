@@ -1,44 +1,63 @@
 {% extends 'base_app.html' %}
 {% load static %}
 {% block title %}Dashboard{% endblock %}
+
 {% block content %}
 <div class="dashboard-wrapper">
+
+    {% if user.is_authenticated %}
+    <div class="profile-box">
+        {% if user.profile.profile_pic %}
+            <img src="{{ user.profile.profile_pic.url }}" alt="Profile Pic">
+        {% else %}
+            <div class="profile-placeholder">{{ user.username|first|upper }}</div>
+        {% endif %}
+        <div class="profile-info">
+            <strong>{{ username_only }}</strong>
+
+            {% if user.profile.bio %}
+            <div>{{ user.profile.bio }}</div>
+            {% endif %}
+            {% if user.profile.location %}
+            <div>{{ user.profile.location }}</div>
+            {% endif %}
+        </div>
+        <a href="{% url 'add_profile' %}">Edit</a>
+    </div>
+    {% endif %}
+
     <div class="hero-box">
-        <h2>Hello, {{ username_only }} </h2>
+        <h2>Hello, {{ username_only }}</h2>
         <p class="hero-sub">Discover and share delicious homemade recipes</p>
         <form method="GET" class="search-form">
-        <div class="search-wrapper">
-            <input type="text" name ="q" placeholder="Search recipes..." value="{{ query }}">
-            <button>Search</button>
-        </div>
+            <div class="search-wrapper">
+                <input type="text" name="q" placeholder="Search recipes..." value="{{ query }}">
+                <button>Search</button>
+            </div>
         </form>
     </div>
+
     <div class="categories-scroll">
-        <a href="?category=Dinner" 
-           class="cat-btn {% if selected_category == 'Dinner' %}active{% endif %}">Dinner</a>
-        <a href="?category=Snacks" 
-           class="cat-btn {% if selected_category == 'Snacks' %}active{% endif %}">Snacks</a>
-        <a href="?category=Desserts" 
-           class="cat-btn {% if selected_category == 'Desserts' %}active{% endif %}">Desserts</a>
-        <a href="?category=Healthy" 
-           class="cat-btn {% if selected_category == 'Healthy' %}active{% endif %}">Healthy</a>
-        <a href="?category=Beverages" 
-           class="cat-btn {% if selected_category == 'Beverages' %}active{% endif %}">Beverages</a>
+        <a href="?category=Dinner" class="cat-btn {% if selected_category == 'Dinner' %}active{% endif %}">Dinner</a>
+        <a href="?category=Snacks" class="cat-btn {% if selected_category == 'Snacks' %}active{% endif %}">Snacks</a>
+        <a href="?category=Desserts" class="cat-btn {% if selected_category == 'Desserts' %}active{% endif %}">Desserts</a>
+        <a href="?category=Healthy" class="cat-btn {% if selected_category == 'Healthy' %}active{% endif %}">Healthy</a>
+        <a href="?category=Beverages" class="cat-btn {% if selected_category == 'Beverages' %}active{% endif %}">Beverages</a>
         <a href="{% url 'dashboard' %}" class="cat-btn clear">All</a>
     </div>
+
     <div class="recipe-grid">
         {% for r in recipes %}
         <a href="{% url 'recipe_detail' r.id %}" class="recipe-link">
-        <div class="recipe-card">
-            {% if r.image %}
-            <img src="{{ r.image.url }}" alt="{{ r.title }}">
-            {% endif %}
-
-            <div class="recipe-info">
-                <h3>{{ r.title }}</h3>
-                <p>{{ r.ingredients|truncatewords:10 }}</p>
+            <div class="recipe-card">
+                {% if r.image %}
+                <img src="{{ r.image.url }}" alt="{{ r.title }}">
+                {% endif %}
+                <div class="recipe-info">
+                    <h3>{{ r.title }}</h3>
+                    <p>{{ r.ingredients|truncatewords:10 }}</p>
+                </div>
             </div>
-        </div>
         </a>
         {% empty %}
         <p>No recipes yet. Add one!</p>
@@ -46,5 +65,6 @@
     </div>
 
 </div>
-
 {% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends 'base_app.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="max-width: 600px; margin: auto; padding: 20px;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Add / Update Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="margin-bottom: 10px;">
+            {{ form.bio.label_tag }}<br>
+            {{ form.bio }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            {{ form.location.label_tag }}<br>
+            {{ form.location }}
+        </div>
+        <div style="margin-bottom: 20px;">
+            {{ form.profile_pic.label_tag }}<br>
+            {{ form.profile_pic }}
+        </div>
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Save Profile</button>
+    </form>
+</div>
+{% endblock %}
