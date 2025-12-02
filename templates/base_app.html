@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'app.css' %}">
 
     <style>
-        /* Theme variables */
         :root {
             --bg-color: #fafafa;
             --text-color: #000000;
@@ -83,7 +82,6 @@
     <div>
         <a href="{% url 'dashboard' %}">Home</a>
         <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
-        <a href="#">Profile</a>
         <a href="{% url 'logout' %}">Logout</a>
         <button id="theme-toggle" class="theme-toggle-btn">🌙 Toggle Theme</button>
     </div>
@@ -110,4 +108,3 @@
 
 </body>
 </html>
-
