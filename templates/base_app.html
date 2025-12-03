@@ -37,73 +37,144 @@
             justify-content: space-between;
             align-items: center;
             background-color: var(--navbar-bg);
-            padding: 10px 20px;
+            padding: 12px 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1000;
         }
 
         .navbar .title {
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
 
-        .navbar a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: var(--link-color);
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .theme-toggle-btn {
+        .profile-menu {
+            position: relative;
             cursor: pointer;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 5px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
+        }
+
+        .profile-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            margin-left: 15px;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        .profile-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 45px;
+            background: var(--card-bg);
+            width: 180px;
+            border-radius: 12px;
+            padding: 10px 0;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+            z-index: 9999;
+        }
+
+        .profile-dropdown.show {
+            display: block !important;
+        }
+
+        .profile-dropdown a, .profile-dropdown button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            font-size: 15px;
+            color: var(--link-color);
+            cursor: pointer;
+        }
+
+        .profile-dropdown a:hover,
+        .profile-dropdown button:hover {
+            background: rgba(0,0,0,0.08);
         }
 
         .content-area {
             padding: 20px;
         }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-        }
     </style>
+
 </head>
 
 <body>
-{% block navbar %}
+
 <div class="navbar">
     <div class="title">RecipeBook</div>
-    <div>
-        <a href="{% url 'dashboard' %}">Home</a>
-        <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
-        <a href="{% url 'logout' %}">Logout</a>
-        <button id="theme-toggle" class="theme-toggle-btn">🌙 Toggle Theme</button>
+
+    <div class="nav-links">
+
+        {% if user.is_authenticated %}
+        <div class="profile-menu">
+            <div class="profile-icon" id="profileBtn">
+                {% if user.profile.profile_pic %}
+                    <img src="{{ user.profile.profile_pic.url }}">
+                {% else %}
+                    {{ user.username|first }}
+                {% endif %}
+            </div>
+
+            <div class="profile-dropdown" id="dropdownMenu">
+                <a href="{% url 'dashboard' %}">🏠 Home</a>
+                <a href="{% url 'add_recipe' %}">➕ Add Recipe</a>
+                <a href="{% url 'add_profile' %}">👤 My Profile</a>
+                <button id="theme-toggle">🌙 Toggle Theme</button>
+                <a href="{% url 'logout' %}">🚪 Logout</a>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
 </div>
-{% endblock %}
 
 <div class="content-area">
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 </div>
 
+<!-- THEME TOGGLE JS -->
 <script>
     const toggleBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn?.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme');
         const newTheme = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
+</script>
+
+
+<script>
+const fixedBtn = document.getElementById("profileBtn");
+const fixedMenu = document.getElementById("dropdownMenu");
+
+fixedBtn?.addEventListener("click", () => {
+    fixedMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", function(e) {
+    if (!fixedBtn.contains(e.target) && !fixedMenu.contains(e.target)) {
+        fixedMenu.classList.remove("show");
+    }
+});
 </script>
 
 </body>

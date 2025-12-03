@@ -130,4 +130,3 @@ def add_profile(request):
         form = ProfileForm(instance=profile)
 
     return render(request, 'core/add_profile.html', {'form': form})
-    
