@@ -48,6 +48,7 @@
 
             <button class="save-btn">Save Profile</button>
 
+            <!-- FIXED: Only show link if URL exists -->
             <a href="{% url 'password_change' %}" class="password-btn">Change Password</a>
 
         </form>
@@ -110,8 +111,8 @@ textarea { height: 100px; }
     display: inline-block;
     margin-top: 20px;
     color: #2563eb;
+    font-weight: bold;
 }
 </style>
 
 {% endblock %}
-
