@@ -139,6 +139,7 @@ def add_profile(request):
         request.user.first_name = name
         request.user.email = email
         request.user.save()
+        profile.name= name
 
         profile.phone = phone
         profile.bio = bio
@@ -149,4 +150,4 @@ def add_profile(request):
 
         return redirect('dashboard')
 
-    return render(request, 'core/add_profile.html')
+    return render(request, 'core/add_profile.html', {'profile': profile})
