@@ -7,7 +7,6 @@
 :root {
     --text-color: #1a202c; 
     --navbar-bg: #008080; 
-    --bg-color:#eee2d2;
     --link-color: #2c7a7b;
     --accent-color: #4aaaa5;
     --accent-color-2: #008080;
@@ -21,7 +20,7 @@
 [data-theme="dark"] {
     --bg-color: #111827;
     --text-color: #f3f4f6;
-    --navbar-bg: #059669;
+    --navbar-bg: #008080;
     --link-color: #d1fae5;
     --card-bg: #1f2937;
     --accent-color: #4aaaa5 ;
