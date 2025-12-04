@@ -32,7 +32,7 @@
 }
 
 body {
-    background-color: #f0d9bb;
+    background-color: #eee2d2;
     color: var(--text-color);
     font-family: "Inter", sans-serif;
     transition: all 0.3s ease;
@@ -99,7 +99,7 @@ a{ text-decoration: none;
     padding: 20px;
     padding-top: 10px;
     min-height: 100vh;
-    background-color: #f0d9bb;
+    background-color: #eee2d2;
 
 }
 
@@ -496,11 +496,28 @@ a{ text-decoration: none;
     }
 }
 
-
 html, body {
-    background-color: #f0d9bb !important;
+    background-color: #eee2d2 !important;
 }
 
 main, .content, .container, .wrapper {
-    background-color: #f0d9bb !important;
+    background-color: #eee2d2 !important ;
+}
+
+{
+
+    background-color: #008080 !important;
+}
+
+nav h1, 
+nav a, 
+.navbar h1, 
+.navbar a {
+    color: white !important;
+}
+
+
+
+nav, header, .navbar, .topnav, .nav-bar {
+    background-color: #008080 !important;  
 }
