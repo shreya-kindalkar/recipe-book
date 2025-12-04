@@ -9,9 +9,8 @@
 
     <style>
         :root {
-            --bg-color: #fafafa;
+            --bg-color:#f8e5cf;
             --text-color: #000000;
-            --navbar-bg: #ffffff;
             --link-color: #000000;
             --card-bg: #ffffff;
         }
@@ -19,7 +18,6 @@
         [data-theme="dark"] {
             --bg-color: #1a1a1a;
             --text-color: #f0f0f0;
-            --navbar-bg: #2c2c2c;
             --link-color: #f0f0f0;
             --card-bg: #2c2c2c;
         }
@@ -80,42 +78,8 @@
         }
 
 
-        .profile-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 45px;
-            background: var(--card-bg);
-            width: 180px;
-            border-radius: 12px;
-            padding: 10px 0;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-            z-index: 9999;
-        }
+      
 
-        .profile-dropdown.show {
-            display: block !important;
-        }
-
-        .profile-dropdown a, .profile-dropdown button {
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            padding: 10px 15px;
-            font-size: 15px;
-            color: var(--link-color);
-            cursor: pointer;
-        }
-
-        .profile-dropdown a:hover,
-        .profile-dropdown button:hover {
-            background: rgba(0,0,0,0.08);
-        }
-
-        .content-area {
-            padding: 20px;
-        }
     </style>
 
 </head>
@@ -123,7 +87,7 @@
 <body>
 
 <div class="navbar">
-    <div class="title">RecipeBook</div>
+    <div class="title">RecipeVault</div>
 
     <div class="nav-links">
 
@@ -138,11 +102,11 @@
             </div>
 
             <div class="profile-dropdown" id="dropdownMenu">
-                <a href="{% url 'dashboard' %}">🏠 Home</a>
-                <a href="{% url 'add_recipe' %}">➕ Add Recipe</a>
-                <a href="{% url 'add_profile' %}">👤 My Profile</a>
-                <button id="theme-toggle">🌙 Toggle Theme</button>
-                <a href="{% url 'logout' %}">🚪 Logout</a>
+                <a href="{% url 'dashboard' %}"> Home</a>
+                <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
+                <a href="{% url 'add_profile' %}"> My Profile</a>
+                <button id="theme-toggle"> Switch Theme</button>
+                <a href="{% url 'logout' %}">Logout</a>
             </div>
         </div>
         {% endif %}
