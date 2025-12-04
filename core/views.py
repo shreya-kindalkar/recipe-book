@@ -33,11 +33,21 @@ def signup(request):
 
 def user_login(request):
     if request.method == "POST":
-        email = request.POST['email']
+        email = request.POST['email'].strip()
         password = request.POST['password']
+        user_obj = None
+        if email:
+            try:
+                user_obj = User.objects.get(email=email)
+            except User.DoesNotExist:
+                user_obj = None
 
-        user = authenticate(request, username=email, password=password)
-        if user:
+        if user_obj:
+            user = authenticate(request, username=user_obj.username, password=password)
+        else:
+            user = authenticate(request, username=email, password=password)
+
+        if user is not None:
             login(request, user)
             return redirect('dashboard')
         else:
