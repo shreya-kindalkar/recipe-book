@@ -9,7 +9,7 @@
 
     <style>
         :root {
-            --bg-color: #fafafa;
+            --bg-color:#f8e5cf;
             --text-color: #000000;
             --link-color: #000000;
             --card-bg: #ffffff;
@@ -103,11 +103,11 @@
             </div>
 
             <div class="profile-dropdown" id="dropdownMenu">
-                <a href="{% url 'dashboard' %}">🏠 Home</a>
-                <a href="{% url 'add_recipe' %}">➕ Add Recipe</a>
-                <a href="{% url 'add_profile' %}">👤 My Profile</a>
-                <button id="theme-toggle">🌙 Toggle Theme</button>
-                <a href="{% url 'logout' %}">🚪 Logout</a>
+                <a href="{% url 'dashboard' %}"> Home</a>
+                <a href="{% url 'add_recipe' %}">+ Add Recipe</a>
+                <a href="{% url 'add_profile' %}"> My Profile</a>
+                <button id="theme-toggle">Switch Theme</button>
+                <a href="{% url 'logout' %}">Logout</a>
             </div>
         </div>
         {% endif %}
