@@ -6,7 +6,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fcfcfc;
-    background-image: url('https://images.unsplash.com/photo-1454944338482-a69bb95894af?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -72,3 +72,7 @@ body{
 .login-footer{
     font-size: 15px;
 }
+/* error and success messages */
+/* force messages */
+p.message.error { color: #d9534f !important; }
+p.message.success { color: #28a745 !important; }

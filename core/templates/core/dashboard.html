@@ -5,30 +5,10 @@
 {% block content %}
 <div class="dashboard-wrapper">
 
-    {% if user.is_authenticated %}
-    <div class="profile-box">
-        {% if user.profile.profile_pic %}
-            <img src="{{ user.profile.profile_pic.url }}" alt="Profile Pic">
-        {% else %}
-            <div class="profile-placeholder">{{ user.username|first|upper }}</div>
-        {% endif %}
-        <div class="profile-info">
-            <strong>{{ username_only }}</strong>
-
-            {% if user.profile.bio %}
-            <div>{{ user.profile.bio }}</div>
-            {% endif %}
-            {% if user.profile.location %}
-            <div>{{ user.profile.location }}</div>
-            {% endif %}
-        </div>
-        <a href="{% url 'add_profile' %}">Edit</a>
-    </div>
-    {% endif %}
-
     <div class="hero-box">
         <h2>Hello, {{ username_only }}</h2>
         <p class="hero-sub">Discover and share delicious homemade recipes</p>
+
         <form method="GET" class="search-form">
             <div class="search-wrapper">
                 <input type="text" name="q" placeholder="Search recipes..." value="{{ query }}">
@@ -53,12 +33,14 @@
                 {% if r.image %}
                 <img src="{{ r.image.url }}" alt="{{ r.title }}">
                 {% endif %}
+
                 <div class="recipe-info">
                     <h3>{{ r.title }}</h3>
                     <p>{{ r.ingredients|truncatewords:10 }}</p>
                 </div>
             </div>
         </a>
+
         {% empty %}
         <p>No recipes yet. Add one!</p>
         {% endfor %}
@@ -66,5 +48,4 @@
 
 </div>
 {% endblock %}
-
 

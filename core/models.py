@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,6 +10,7 @@ class Recipe(models.Model):
         ("Healthy", "Healthy"),
         ("Beverages", "Beverages"),
     ]
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     ingredients = models.TextField()
@@ -20,11 +22,15 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True)
+    phone = models.CharField(max_length=20, blank=True)
     bio = models.TextField(blank=True)
     location = models.CharField(max_length=100, blank=True)
     profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
 
     def __str__(self):
         return self.user.username
+    
