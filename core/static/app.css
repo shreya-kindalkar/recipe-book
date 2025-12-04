@@ -469,11 +469,12 @@ a{ text-decoration: none;
     display: none;
 }
 .profile-dropdown button{
-    width: 100%;
+    width: 180px;
+    right: 0;
     text-align: left;
     background: none;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 35px;
     font-size: 15px;
     color: var(--link-color);
     cursor: pointer;
