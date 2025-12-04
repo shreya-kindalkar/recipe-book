@@ -18,11 +18,12 @@ urlpatterns = [
 
     path('add-profile/', views.add_profile, name='add_profile'),
 
-
-    path('password-change/', 
-         auth_views.PasswordChangeView.as_view(
-             template_name='password_change.html',
-             success_url='/'
-         ),
-         name='password_change'),
+    path(
+        'change-password/',
+        auth_views.PasswordChangeView.as_view(
+            template_name='core/password_change.html',
+            success_url='/dashboard/'
+        ),
+        name='change_password'
+    ),
 ]
