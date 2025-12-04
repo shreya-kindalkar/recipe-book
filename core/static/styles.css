@@ -72,3 +72,7 @@ body{
 .login-footer{
     font-size: 15px;
 }
+/* error and success messages */
+/* force messages */
+p.message.error { color: #d9534f !important; }
+p.message.success { color: #28a745 !important; }
