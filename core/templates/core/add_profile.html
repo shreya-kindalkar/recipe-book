@@ -47,10 +47,7 @@
             </div>
 
             <button class="save-btn">Save Profile</button>
-
-            <!-- FIXED: Only show link if URL exists -->
             <a href="{% url 'password_change' %}" class="password-btn">Change Password</a>
-
         </form>
     </div>
 </div>
@@ -75,8 +72,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-.full { grid-column: 1 / 3; }
-label { font-weight: bold; }
+.full {
+    grid-column: 1 / 3;
+}
+label {
+    font-weight: bold;
+}
 input, textarea {
     width: 100%;
     padding: 10px;
@@ -84,7 +85,9 @@ input, textarea {
     border: 1px solid #ccc;
     margin-top: 5px;
 }
-textarea { height: 100px; }
+textarea {
+    height: 100px;
+}
 .profile-pic-wrapper {
     display: flex;
     flex-direction: column;
@@ -107,12 +110,4 @@ textarea { height: 100px; }
     border: none;
     cursor: pointer;
 }
-.password-btn {
-    display: inline-block;
-    margin-top: 20px;
-    color: #2563eb;
-    font-weight: bold;
-}
-</style>
-
-{% endblock %}
+.pas
