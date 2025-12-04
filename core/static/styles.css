@@ -75,4 +75,8 @@ body{
 /* error and success messages */
 /* force messages */
 p.message.error { color: #d9534f !important; }
+<<<<<<< HEAD
 p.message.success { color: #28a745 !important; }
+=======
+p.message.success { color: #28a745 !important; }
+>>>>>>> a651029b20dfbe2198b966f727a45333c4047689
