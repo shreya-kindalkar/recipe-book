@@ -44,6 +44,8 @@ body {
     padding: 40px 20px;
 }
 
+a{text text-decoration: none;
+}
 .navbar {
     position: sticky;
     display: flex;
