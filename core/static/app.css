@@ -10,8 +10,8 @@
     --navbar-bg: #3ebd93; 
     --link-color: #2c7a7b;
     --card-bg: #ffffff;
-    --accent-color: #ff8c42;
-    --accent-color-2: #ffb067;
+    --accent-color: #4aaaa5;
+    --accent-color-2: #008080;
     --muted: #6b7280;
     --input-border: #cbd5e1;
     --shadow: 0 6px 20px rgba(0,0,0,0.08);
@@ -25,8 +25,8 @@
     --navbar-bg: #059669;
     --link-color: #d1fae5;
     --card-bg: #1f2937;
-    --accent-color:#ff8c42 ;
-    --accent-color-2: #ffb067;;
+    --accent-color: #4aaaa5 ;
+    --accent-color-2: #008080;
     --muted: #a1a1aa;
     --input-border: #374151;
 }
