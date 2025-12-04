@@ -382,7 +382,12 @@ a{ text-decoration: none;
     grid-template-columns: 1fr;
     gap: 30px;
 }
-
+.delete-btn{
+    display:flexbox;
+    background-color: rgb(235, 6, 6);
+    border-radius: 20px;
+    color: #ffffff;
+}
 @media(min-width: 900px) {
     .detail-content-grid {
         grid-template-columns: 1fr 1fr;
