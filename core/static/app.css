@@ -32,7 +32,7 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #f0d9bb;
     color: var(--text-color);
     font-family: "Inter", sans-serif;
     transition: all 0.3s ease;
@@ -99,6 +99,8 @@ a{ text-decoration: none;
     padding: 20px;
     padding-top: 10px;
     min-height: 100vh;
+    background-color: #f0d9bb;
+
 }
 
 .hero-box {
