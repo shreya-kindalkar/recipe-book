@@ -59,7 +59,7 @@ def user_login(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    query = request.GET.get('q')
+    query = request.GET.get('q','')
     category = request.GET.get('category')
     recipes = Recipe.objects.all()
 
